@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <title>QR 알리미</title>
+    
+    <!-- Shared Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=NanumSquare:wght@300;400;700;800&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yoon+Childfundkorea:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=HanwhaGothic:wght@400&display=swap" />
+
+    <style>
+        /* --- GLOBAL & NAVIGATION STYLES --- */
+        body {
+            margin: 0;
+            line-height: normal;
+            font-family: 'NanumSquare', sans-serif;
+            background-color: #fff;
+        }
+
+        .main-header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background-color: #fff;
+            border-bottom: 1px solid #dcdcdc;
+            box-sizing: border-box;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-top-inner {
+            width: 1240px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .header-logo .symbol-icon { width: 26.2px; height: 26.2px; }
+        .header-logo .logo-bold { width: 65.5px; height: 22.3px; }
+        .header-logo .symbol-parent { display: flex; align-items: center; gap: 5px; }
+
+        .header-nav-main {
+            width: 439px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 16px;
+        }
+        .header-nav-main .nav-divider { font-weight: 300; color: rgba(0, 0, 0, 0.5); }
+        .header-nav-main .nav-link { font-weight: 800; color: #999; }
+        .header-nav-main .nav-link.active { color: #000; }
+        
+        .header-bottom {
+            background-color: rgba(0, 0, 0, 0.85);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .header-bottom-inner {
+            width: 1240px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .header-nav-sub {
+            width: 439px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 800;
+        }
+        
+        .nav-button {
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 0;
+            font: inherit;
+            color: inherit;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .nav-button:hover { opacity: 0.8; }
+        .nav-button.active-yellow { color: #fae100; cursor: default; }
+        .nav-button.active-yellow:hover { opacity: 1; }
+
+        .page-section {
+            display: none; /* Hide all sections by default */
+        }
+        .page-section.active {
+            display: block; /* Show the active section */
+        }
+
+        /* 
+        ==========================================================================
+         START: CONTACT US SECTION STYLES
+        ==========================================================================
+        */
+        #contact-us-section {
+            position: relative;
+            background-color: #fff;
+            /* height: 1700px;  Removed fixed height */
+            overflow: hidden;
+            text-align: left;
+            font-size: 16px;
+            color: rgba(0, 0, 0, 0.5);
+            font-family: NanumSquare;
+            padding-bottom: 100px; /* Add some space at the bottom */
+        }
+       
+        #contact-us-section .title-parent {
+            /* Converted from absolute to relative positioning */
+            position: relative;
+            width: 1240px;
+            margin: 64px auto 0; /* Replaces top/left absolute positioning */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 64px 0px;
+            box-sizing: border-box;
+            gap: 100px;
+            font-size: 30px;
+            color: #000;
+        }
+        #contact-us-section .title { display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 20px; }
+        #contact-us-section .icon-mail { width: 40px; position: relative; height: 40px; object-fit: cover; }
+        #contact-us-section .title-nanumsquare { position: relative; font-weight: 800; text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
+        #contact-us-section .text { display: flex; flex-direction: row; align-items: center; justify-content: center; }
+        
+        #contact-us-section .qa-mockup-parent { width: 1240px; position: relative; height: 1250px; font-size: 16px; }
+        #contact-us-section .qa-mockup { position: absolute; top: 0px; left: 340px; width: 560.1px; height: 598.3px; }
+        #contact-us-section .ellipse-parent { position: absolute; top: 7.02px; left: 0.1px; border-radius: 230.18px; border: 1px solid #dcdcdc; box-sizing: border-box; width: 460.4px; height: 460.4px; display: flex; flex-direction: row; align-items: center; justify-content: flex-start; padding: 25px; gap: 7.6px; }
+        #contact-us-section .frame-child { width: 410px; position: relative; border-radius: 50%; border: 1px solid #dcdcdc; box-sizing: border-box; height: 410px; z-index: 0; }
+        #contact-us-section .frame-item { width: 357.6px; position: absolute; margin: 0 !important; top: 51.37px; left: calc(50% - 178.83px); border-radius: 50%; border: 0.9px solid #dcdcdc; box-sizing: border-box; height: 357.6px; z-index: 0; }
+        #contact-us-section .qa-mockup-child { position: absolute; top: 4.38px; left: 0px; background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8)); width: 460.4px; height: 294.6px; }
+        #contact-us-section .iphone-15-icon { position: absolute; top: 30px; left: calc(50% - 350px); width: 125%; height: auto; object-fit: contain; transform: rotate(15deg) scale(1.25); transform-origin: center; }
+        
+        #contact-us-section .frame-parent1 { position: absolute; top: 299px; left: calc(50% - 620px); border-radius: 30px 30px 0px 0px; background-color: #f9f9f9; width: 1240px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 50px 0px 100px; box-sizing: border-box; gap: 50px; }
+        #contact-us-section .parent1 { border-radius: 30px; background-color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 50px 150px; gap: 50px; text-align: center; font-size: 24px; }
+        #contact-us-section .div9 { align-self: stretch; position: relative; font-weight: 800; }
+        #contact-us-section .group-div { width: 461px; position: relative; height: 399px; text-align: right; font-size: 16px; }
+        #contact-us-section .parent2 { position: absolute; top: 7px; left: 0px; width: 73px; height: 134px; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 30px; }
+        #contact-us-section .b3 { align-self: stretch; position: relative; line-height: 25px; }
+        #contact-us-section .frame-parent2 { position: absolute; top: 0px; left: 101px; width: 400px; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 30px; text-align: left; color: #999; }
+        #contact-us-section .frame-parent3 { align-self: stretch; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 20px; }
+        #contact-us-section .form-input, #contact-us-section .form-textarea { align-self: stretch; border-radius: 5px; background-color: #f9f9f9; border: 1px solid #dcdcdc; box-sizing: border-box; padding: 10px 24px; font-family: 'NanumSquare', sans-serif; font-size: 16px; color: #333; }
+        #contact-us-section .form-input::placeholder, #contact-us-section .form-textarea::placeholder { color: #999; font-weight: 700; }
+        #contact-us-section .form-textarea { height: 150px; resize: vertical; line-height: 1.5; }
+        #contact-us-section .check-fill-parent { display: flex; flex-direction: row; align-items: center; justify-content: flex-start; gap: 16px; font-size: 14px; }
+        #contact-us-section .custom-checkbox { display: none; }
+        #contact-us-section .check-fill-parent .b9 { position: relative; padding-left: 36px; cursor: pointer; user-select: none; display: inline-flex; align-items: center; height: 24px; font-weight: bold;}
+        #contact-us-section .check-fill-parent .b9 .span { color: #b00020; }
+        #contact-us-section .check-fill-parent .b9::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 24px; height: 24px; border: 2px solid #ccc; border-radius: 50%; background-color: #fff; box-sizing: border-box; }
+        #contact-us-section .custom-checkbox:checked + .b9::after { content: ''; position: absolute; left: 5.3px; top: 50%; transform: translateY(-50%); width: 14px; height: 14px; background-color: #999; border-radius: 50%; }
+        #contact-us-section .wrapper5 { align-self: stretch; border-radius: 5px; background-color: #999; display: flex; flex-direction: row; align-items: center; justify-content: center; padding: 10px 24px; color: #fff; border: none; cursor: pointer; transition: background-color 0.2s; }
+        #contact-us-section .wrapper5:hover { background-color: #888; }
+        #contact-us-section .qr-container { position: relative; line-height: 25px; }
+
+
+        /* 
+        ==========================================================================
+         START: FAQ SECTION STYLES
+        ==========================================================================
+        */
+        #faq-section .faq-page-wrapper {
+            position: relative;
+            background-color: #fff;
+            padding-top: 64px;
+            padding-bottom: 80px;
+            overflow: hidden;
+            text-align: left;
+            font-size: 16px;
+            color: rgba(0, 0, 0, 0.5);
+            font-family: NanumSquare;
+        }
+        #faq-section .title-parent {
+            margin: 0 auto;
+            width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 64px 0px;
+            box-sizing: border-box;
+            gap: 64px;
+            font-size: 30px;
+            color: #000;
+        }
+        #faq-section .title { display: flex; flex-direction: row; align-items: center; justify-content: flex-start; gap: 20px; }
+        #faq-section .icon-chat { width: 40px; position: relative; height: 40px; object-fit: cover; }
+        #faq-section .title-nanumsquare { position: relative; font-weight: 800; text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
+        #faq-section .contents { align-self: stretch; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 50px; text-align: center; font-size: 40px; color: #999; font-family: 'Yoon Childfundkorea'; }
+        #faq-section .list { align-self: stretch; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 20px; }
+        #faq-section .text-wrapper { align-self: stretch; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; }
+        #faq-section .text5 { align-self: stretch; background-color: #f9f9f9; height: 65px; display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 0px; cursor: pointer; transition: background-color 0.4s ease; }
+        #faq-section .frame-parent { width: 672px; display: flex; flex-direction: row; align-items: center; justify-content: flex-start; }
+        #faq-section .q-wrapper { width: 65px; height: 65px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; flex-shrink: 0; }
+        #faq-section .q { align-self: stretch; position: relative; line-height: 140%; }
+        #faq-section .subtitle2-nanumsquare { position: relative; font-size: 18px; line-height: 140%; font-weight: 800; font-family: NanumSquare; color: #000; text-align: left; }
+        #faq-section .frame-icon { width: 65px; height: 65px; overflow: hidden; flex-shrink: 0; object-fit: cover; transition: transform 0.4s ease; }
+        #faq-section .text-wrapper.active .frame-icon { transform: rotate(180deg); }
+        #faq-section .text-wrapper.active .text5, #faq-section .text-wrapper.active .text9 { background-color: #fff; }
+        #faq-section .text9 { color: #fae100; background-color: #f9f9f9; width: 100%; box-sizing: border-box; max-height: 0; overflow: hidden; padding: 0 30px; transition: max-height 0.5s ease-out, padding 0.5s ease-out, background-color 0.4s ease; }
+        #faq-section .text-wrapper.active .text9 { max-height: 700px; padding: 20px 10px; transition: max-height 0.5s ease-in, padding 0.5s ease-in, background-color 0.4s ease; }
+        #faq-section .answer-content img { max-width: 100%; height: auto; border-radius: 8px; }
+        
+        /* 
+        ==========================================================================
+         START: PAGINATION STYLES (Added for FAQ)
+        ==========================================================================
+        */
+        #faq-section .icon-size {
+            width: 16px;
+            height: 16px;
+        }
+        #faq-section .div {
+            position: relative;
+            line-height: 150%;
+            display: none;
+        }
+        #faq-section .pagination-atomic {
+            width: 35px;
+            background-color: #fff;
+            border-right: 1px solid rgba(0, 0, 0, 0.15);
+            box-sizing: border-box;
+            height: 35px;
+            display: none;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 0px 8px;
+            font-size: 13.6px;
+            color: #8a949e;
+        }
+        #faq-section .container {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0%;
+            right: 0%;
+            bottom: 0%;
+            left: 0%;
+            opacity: 0.1;
+        }
+        #faq-section .vector-icon {
+            position: absolute;
+            height: 66.88%;
+            width: 40%;
+            top: 16.67%;
+            right: 34.17%;
+            bottom: 16.46%;
+            left: 25.83%;
+            max-width: 100%;
+            overflow: hidden;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        #faq-section .iconarrow-left {
+            width: 36px;
+            position: relative;
+            height: 36px;
+        }
+        #faq-section .icon-size1 {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+        #faq-section .pagination-atomic1 {
+            width: 35px;
+            background-color: #fff;
+            border-right: 1px solid rgba(0, 0, 0, 0.15);
+            box-sizing: border-box;
+            height: 35px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 0px 8px;
+            font-size: 16px;
+            color: #8a949e;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+        #faq-section .pagination-atomic1:hover {
+             background-color: #f0f0f0;
+        }
+        #faq-section .div2 {
+            position: relative;
+            line-height: 150%;
+        }
+        #faq-section .number {
+            width: 16px;
+            height: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #faq-section .pagination-atomic2 {
+            width: 35px;
+            background-color: #efefef;
+            border-right: 1px solid rgba(0, 0, 0, 0.15);
+            box-sizing: border-box;
+            height: 35px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+        }
+        #faq-section .pagination-atomic3 {
+            width: 35px;
+            background-color: #fff;
+            border-right: 1px solid rgba(0, 0, 0, 0.15);
+            box-sizing: border-box;
+            height: 35px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Style for number buttons */
+        #faq-section .pagination-number-btn {
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+        #faq-section .pagination-number-btn:not(.pagination-atomic2):hover {
+            background-color: #f0f0f0; /* Light grey hover for inactive buttons */
+        }
+        #faq-section .vector-icon1 {
+            position: absolute;
+            height: 66.88%;
+            width: 40%;
+            top: 16.67%;
+            right: 25.83%;
+            bottom: 16.46%;
+            left: 34.17%;
+            max-width: 100%;
+            overflow: hidden;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        #faq-section .pagination-atomic12 {
+            width: 35px;
+            background-color: #fff;
+            height: 35px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 0px 8px;
+            box-sizing: border-box;
+            font-size: 13.6px;
+            color: #464c53;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+        #faq-section .pagination-atomic12:hover {
+            background-color: #f0f0f0;
+        }
+        #faq-section .pagination-atomic13 {
+            width: 35px;
+            border-radius: 3.2px;
+            background-color: #fff;
+            height: 35px;
+            display: none;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 0px 8px;
+            box-sizing: border-box;
+            font-size: 13.6px;
+            color: #464c53;
+        }
+        #faq-section .page {
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        #faq-section .page-parent {
+            /* width: 100%; */ /* This can cause layout issues in a flex container */
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            font-size: 15px;
+            color: rgba(0, 0, 0, 0.5);
+            font-family: HanwhaGothic;
+        }
+
+
+        /* 
+        ==========================================================================
+         START: NEWS SECTION STYLES
+        ==========================================================================
+        */
+        #news-section {
+            width: 100%;
+            position: relative;
+            background-color: #fff;
+            /* height: 966px; Removed fixed height */
+            overflow: hidden;
+            text-align: left;
+            font-size: 16px;
+            color: rgba(0, 0, 0, 0.5);
+            padding-bottom: 100px; /* Add some space at the bottom */
+        }
+        #news-section .image-1857-icon {
+            position: absolute;
+            top: 170px;
+            left: calc(50% - 960px);
+            width: 1920px;
+            height: 666px;
+            object-fit: cover;
+            z-index: 1; /* Ensure it is behind content */
+        }
+        #news-section .title-parent {
+            /* Converted from absolute to relative positioning */
+            position: relative;
+            z-index: 2; /* Ensure it is in front of background */
+            width: 1240px;
+            margin: 0 auto; /* Center the container */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 128px 0px 0px; /* Adjusted padding to position content */
+            box-sizing: border-box;
+            gap: 100px;
+            font-size: 30px;
+            color: #000;
+        }
+        #news-section .title { display: flex; align-items: center; gap: 20px; }
+        #news-section .icon-megaphone { width: 40px; height: 40px; }
+        #news-section .qr { line-height: 140%; font-weight: 800; text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
+        #news-section .card { align-self: stretch; display: flex; justify-content: center; }
+        #news-section .icon-left-parent { flex: 1; display: flex; align-items: center; justify-content: space-between; }
+        #news-section .icon-left, #news-section .icon-right { width: 51.1px; height: 51.1px; cursor: pointer; z-index: 5; }
+        #news-section .group { width: 1100px; overflow: hidden; }
+        #news-section .cards-container-inner { display: flex; gap: 33px; transition: transform 0.5s ease-in-out; }
+        #news-section .news-card { box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1); border-radius: 12px; overflow: hidden; transition: transform 0.2s, opacity 0.2s; cursor: pointer; line-height: 0; width: 250px; flex-shrink: 0; }
+        #news-section .news-card:hover { opacity: 0.85; transform: translateY(-5px); }
+        #news-section .news-card img { display: block; width: 100%; height: auto; }
+        
+        #news-section .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 0px;
+            box-sizing: border-box;
+            z-index: 2000;
+        }
+        #news-section .popup-wrapper { background-color: #fff; padding: 30px; z-index: 2001; border-radius: 0px; position: relative; max-width: 800px; width: 90%; }
+        #news-section .popup-content { max-height: 85vh; overflow-y: auto; }
+        #news-section #popup-content-image { width: 100%; height: auto; display: block; }
+        #news-section .popup-close-btn {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 20px;
+            right: 300px;
+            z-index: 2002;
+            cursor: pointer;
+        }
+
+        /* 
+        ==========================================================================
+         START: COMMON FOOTER STYLES
+        ==========================================================================
+        */
+        .site-footer {
+            background-color: #fff;
+            width: 100%;
+            font-size: 13px;
+            color: rgba(0, 0, 0, 0.85);
+        }
+
+        .site-footer-inner {
+            border-top: 1px solid #dcdcdc;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer-content-wrapper {
+            width: 1240px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 50px 0px;
+            box-sizing: border-box;
+            gap: 21px;
+        }
+
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .company-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .company-info-row {
+            display: flex;
+            align-items: center;
+        }
+
+        .company-info-row > div {
+            padding: 0 16px;
+            border-right: 1px solid #b9b9b9;
+        }
+        .company-info-row > div:first-child {
+            padding-left: 0;
+        }
+        .company-info-row > div:last-child {
+            border-right: none;
+        }
+        
+        .address { margin: 0; }
+
+        .contact-info {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-right-links {
+            display: flex;
+            gap: 24px;
+            font-size: 15px;
+            color: #222;
+        }
+        .footer-right-links b {
+            cursor: pointer;
+        }
+        .footer-right-links b:hover {
+            opacity: 0.7;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-top">
+            <div class="header-top-inner">
+                <div class="header-logo">
+                    <div class="symbol-parent">
+                        <img class="symbol-icon" alt="Symbol" src="./News_Images/symbol.png">
+                        <img class="logo-bold" alt="Logo" src="./News_Images/qr_alliym_name.png">
+                    </div>
+                </div>
+                <nav class="header-nav-main">
+                    <button class="nav-button"><span class="nav-link">QR알리미란?</span></button>
+                    <div class="nav-divider">|</div>
+                    <button class="nav-button"><span class="nav-link">QR알리미 사용하기</span></button>
+                    <div class="nav-divider">|</div>
+                    <button class="nav-button"><span class="nav-link active">커뮤니티</span></button>
+                    <div class="nav-divider">|</div>
+                    <button class="nav-button"><span class="nav-link">B2B</span></button>
+                </nav>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="header-bottom-inner">
+                <nav class="header-nav-sub">
+                    <button class="nav-button"><b class="faq">리뷰</b></button>
+                    <button class="nav-button"><b class="faq">쿠폰 네비게이션</b></button>
+                    <button class="nav-button" data-target="faq-section"><b class="faq">FAQ</b></button>
+                    <button class="nav-button" data-target="contact-us-section"><b class="faq">문의하기</b></button>
+                    <button class="nav-button active-yellow" data-target="news-section"><b class="faq">소식</b></button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 
+        ==========================================================================
+         CONTACT US SECTION HTML
+        ==========================================================================
+        -->
+        <section id="contact-us-section" class="page-section">
+            <div class="title-parent">
+                <div class="title">
+                    <img class="icon-mail" alt="mail icon" src="./ContactUs_Images/icon_mail.png">
+                    <div class="text">
+                        <div class="title-nanumsquare">문의하기</div>
+                    </div>
+                </div>
+                <div class="qa-mockup-parent">
+                    <div class="qa-mockup">
+                        <div class="ellipse-parent">
+                            <div class="frame-child"></div>
+                            <div class="frame-item"></div>
+                        </div>
+                        <div class="qa-mockup-child"></div>
+                        <img class="iphone-15-icon" alt="phone mockup" src="./ContactUs_Images/Phone.png">
+                    </div>
+                    <div class="frame-parent1">
+                        <img alt="QR알리미 B2B 고객 안내" src="./ContactUs_Images/Frame_1.png">
+                        <div class="parent1">
+                            <div class="div9">빠른 상담 도와드리겠습니다.</div>
+                            <div class="group-div">
+                                <div class="parent2">
+                                    <b class="b3">이름</b>
+                                    <b class="b3">연락처</b>
+                                    <b class="b3">문의 내용</b>
+                                </div>
+                                <div class="frame-parent2">
+                                    <div class="frame-parent3">
+                                        <input class="form-input" type="text" placeholder="회사명 또는 담당자 이름을 입력해주세요.">
+                                        <input class="form-input" type="tel" placeholder="회사 또는 담당자 연락처를 번호만 입력해주세요.">
+                                        <textarea class="form-textarea" placeholder="문의 내용을 입력해주세요."></textarea>
+                                    </div>
+                                    <div class="check-fill-parent">
+                                        <input type="checkbox" id="privacy-agree" class="custom-checkbox">
+                                        <label for="privacy-agree" class="b9">
+                                            <span>개인정보 수집 및 이용 동의 </span>
+                                            <span class="span">(필수)</span>
+                                        </label>
+                                    </div>
+                                    <button type="button" class="wrapper5">
+                                        <b class="qr-container">문의하기</b>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Individual Footer Removed -->
+        </section>
+
+        <!-- 
+        ==========================================================================
+         FAQ SECTION HTML
+        ==========================================================================
+        -->
+        <section id="faq-section" class="page-section">
+            <div class="faq-page-wrapper">
+                <div class="title-parent">
+                    <div class="title">
+                        <img class="icon-chat" alt="chat icon" src="./FAQ_Images/icon_chat.png">
+                        <div class="title-nanumsquare">FAQ</div>
+                    </div>
+                    <div class="contents">
+                        <div class="list">
+                            <div class="text-wrapper">
+                                <div class="text5">
+                                    <div class="frame-parent">
+                                        <div class="q-wrapper"><div class="q">Q</div></div>
+                                        <div class="subtitle2-nanumsquare">QR알리미 앱은 어디서 다운받을 수 있나요?</div>
+                                    </div>
+                                    <img class="frame-icon" alt="arrow" src="./FAQ_Images/Frame.png">
+                                </div>
+                                <div class="text9"><div class="answer-content"><img src="./FAQ_Images/A0.png" alt="Answer 0"></div></div>
+                            </div>
+                            <div class="text-wrapper">
+                                <div class="text5">
+                                    <div class="frame-parent">
+                                        <div class="q-wrapper"><div class="q">Q</div></div>
+                                        <div class="subtitle2-nanumsquare">쿠폰등록은 어떻게 하나요?</div>
+                                    </div>
+                                    <img class="frame-icon" alt="arrow" src="./FAQ_Images/Frame.png">
+                                </div>
+                                 <div class="text9"><div class="answer-content"><img src="./FAQ_Images/A1.png" alt="Answer 1"></div></div>
+                            </div>
+                            <div class="text-wrapper">
+                                <div class="text5">
+                                    <div class="frame-parent">
+                                        <div class="q-wrapper"><div class="q">Q</div></div>
+                                        <div class="subtitle2-nanumsquare">쿠폰구매는 어디서 하나요?</div>
+                                    </div>
+                                    <img class="frame-icon" alt="arrow" src="./FAQ_Images/Frame.png">
+                                </div>
+                                 <div class="text9"><div class="answer-content"><img src="./FAQ_Images/A2.png" alt="Answer 2"></div></div>
+                            </div>
+                            <div class="text-wrapper">
+                                <div class="text5">
+                                    <div class="frame-parent">
+                                        <div class="q-wrapper"><div class="q">Q</div></div>
+                                        <div class="subtitle2-nanumsquare">쿠폰 유효기간이 있나요?</div>
+                                    </div>
+                                    <img class="frame-icon" alt="arrow" src="./FAQ_Images/Frame.png">
+                                </div>
+                                 <div class="text9"><div class="answer-content"><img src="./FAQ_Images/A3.png" alt="Answer 3"></div></div>
+                            </div>
+                            <div class="text-wrapper">
+                                <div class="text5">
+                                    <div class="frame-parent">
+                                        <div class="q-wrapper"><div class="q">Q</div></div>
+                                        <div class="subtitle2-nanumsquare">기기 한대당 한대의 차량만 이용이 가능한가요?</div>
+                                    </div>
+                                    <img class="frame-icon" alt="arrow" src="./FAQ_Images/Frame.png">
+                                </div>
+                                 <div class="text9"><div class="answer-content"><img src="./FAQ_Images/A4.png" alt="Answer 4"></div></div>
+                            </div>
+                            <div class="text-wrapper">
+                                <div class="text5">
+                                    <div class="frame-parent">
+                                        <div class="q-wrapper"><div class="q">Q</div></div>
+                                        <div class="subtitle2-nanumsquare">QR코드 출력은 직접해야 하나요? 직접한다면 어떻게 해야하나요?</div>
+                                    </div>
+                                    <img class="frame-icon" alt="arrow" src="./FAQ_Images/Frame.png">
+                                </div>
+                                 <div class="text9"><div class="answer-content"><img src="./FAQ_Images/A5.png" alt="Answer 5"></div></div>
+                            </div>
+                            <div class="text-wrapper">
+                                <div class="text5">
+                                    <div class="frame-parent">
+                                        <div class="q-wrapper"><div class="q">Q</div></div>
+                                        <div class="subtitle2-nanumsquare">차량 한대에 여러명의 운전자등록이 가능한가요?</div>
+                                    </div>
+                                    <img class="frame-icon" alt="arrow" src="./FAQ_Images/Frame.png">
+                                </div>
+                                 <div class="text9"><div class="answer-content"><img src="./FAQ_Images/A6.png" alt="Answer 6"></div></div>
+                            </div>
+                            <div class="text-wrapper">
+                                <div class="text5">
+                                    <div class="frame-parent">
+                                        <div class="q-wrapper"><div class="q">Q</div></div>
+                                        <div class="subtitle2-nanumsquare">차량에 붙여놓은 QR코드 스캔시 “전송실패"가 뜹니다.</div>
+                                    </div>
+                                    <img class="frame-icon" alt="arrow" src="./FAQ_Images/Frame.png">
+                                </div>
+                                 <div class="text9"><div class="answer-content"><img src="./FAQ_Images/A7.png" alt="Answer 7"></div></div>
+                            </div>
+                            <div class="text-wrapper">
+                                <div class="text5">
+                                    <div class="frame-parent">
+                                        <div class="q-wrapper"><div class="q">Q</div></div>
+                                        <div class="subtitle2-nanumsquare">QR코드 스캔시, 이동요청자도 앱을 설치해야 하나요?</div>
+                                    </div>
+                                    <img class="frame-icon" alt="arrow" src="./FAQ_Images/Frame.png">
+                                </div>
+                                 <div class="text9"><div class="answer-content"><img src="./FAQ_Images/A8.png" alt="Answer 8"></div></div>
+                            </div>
+                        </div>
+                        
+                        <!-- PAGINATION CODE START -->
+                        <div class="page-parent">
+                            <div class="page">
+                                <div class="pagination-atomic">
+                                        <img class="icon-size" alt="" src="icon_size.svg">
+                                        
+                                        <div class="div">이전</div>
+                                </div>
+                                <div class="pagination-atomic1">
+                                        <div class="icon-size1">
+                                            <div class="iconarrow-left">
+                                                <div class="container">
+                                                </div>
+                                                <img class="vector-icon" alt="" src="./FAQ_Images/Left.png">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="div">이전</div>
+                                </div>
+                                <div class="pagination-atomic2 pagination-number-btn">
+                                        <div class="number">
+                                            <div class="div2">1</div>
+                                        </div>
+                                </div>
+                                <div class="pagination-atomic3 pagination-number-btn">
+                                        <div class="number">
+                                            <div class="div2">2</div>
+                                        </div>
+                                </div>
+                                <div class="pagination-atomic3 pagination-number-btn">
+                                        <div class="number">
+                                            <div class="div2">3</div>
+                                        </div>
+                                </div>
+                                <div class="pagination-atomic3 pagination-number-btn">
+                                        <div class="number">
+                                            <div class="div2">4</div>
+                                        </div>
+                                </div>
+                                <div class="pagination-atomic3 pagination-number-btn">
+                                        <div class="number">
+                                            <div class="div2">5</div>
+                                        </div>
+                                </div>
+                                <div class="pagination-atomic3 pagination-number-btn">
+                                        <div class="number">
+                                            <div class="div2">6</div>
+                                        </div>
+                                </div>
+                                <div class="pagination-atomic3 pagination-number-btn">
+                                        <div class="number">
+                                            <div class="div2">7</div>
+                                        </div>
+                                </div>
+                                <div class="pagination-atomic3 pagination-number-btn">
+                                        <div class="number">
+                                            <div class="div2">8</div>
+                                        </div>
+                                </div>
+                                <div class="pagination-atomic3 pagination-number-btn">
+                                        <div class="number">
+                                            <div class="div2">9</div>
+                                        </div>
+                                </div>
+                                <div class="pagination-atomic3 pagination-number-btn">
+                                        <div class="number">
+                                            <div class="div2">10</div>
+                                        </div>
+                                </div>
+                                <div class="pagination-atomic12">
+                                        <div class="div">다음</div>
+                                        <div class="icon-size1">
+                                            <div class="iconarrow-left">
+                                                    <div class="container">
+                                                    </div>
+                                                    <img class="vector-icon1" alt="" src="./FAQ_Images/Right.png">
+                                                    
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="pagination-atomic13">
+                                        <div class="div">다음</div>
+                                        <img class="icon-size" alt="" src="icon_size.svg">
+                                        
+                                </div>
+                            </div>
+                        </div>
+                        <!-- PAGINATION CODE END -->
+
+                    </div>
+                </div>
+                 <!-- Individual Footer Removed -->
+            </div>
+        </section>
+
+        <!-- 
+        ==========================================================================
+         NEWS SECTION HTML
+        ==========================================================================
+        -->
+        <section id="news-section" class="page-section active">
+            <img class="image-1857-icon" alt="Background banner" src="./News_Images/background.png">
+            <div class="title-parent">
+                <div class="title">
+                    <img class="icon-megaphone" alt="Megaphone Icon" src="./News_Images/icon_megaphone.png">
+                    <div class="qr">QR알리미 소식</div>
+                </div>
+                <div class="card">
+                    <div class="icon-left-parent">
+                        <img class="icon-left" alt="Left Arrow" src="./News_Images/Left.svg">
+                        <div class="group">
+                            <div class="cards-container-inner">
+                                <div class="news-card" data-popup-image="./News_Images/Pop1.png"><img src="./News_Images/소식1.png" alt="News: 2023 사우디아라비아 타이프 투자포럼 참가"></div>
+                                <div class="news-card" data-popup-image="./News_Images/Pop2.png"><img src="./News_Images/소식2.png" alt="News: QR알리미 와디즈 크라우드펀딩 2차펀딩 Start"></div>
+                                <div class="news-card" data-popup-image="./News_Images/Pop3.png"><img src="./News_Images/소식3.png" alt="News: (주)제제컴즈, 2023 SWEX 참가"></div>
+                                <div class="news-card" data-popup-image="./News_Images/Pop4.png"><img src="./News_Images/소식4.png" alt="News: (주)제제컴즈, 사우디아라비아 타이프시티 플랫폼 개발사업 3차 발표"></div>
+                                <div class="news-card" data-popup-image="./News_Images/Pop5.png"><img src="./News_Images/소식5.png" alt="News: Card 5"></div>
+                                <div class="news-card" data-popup-image="./News_Images/Pop6.png"><img src="./News_Images/소식6.png" alt="News: Card 6"></div>
+                                <div class="news-card" data-popup-image="./News_Images/Pop7.png"><img src="./News_Images/소식7.png" alt="News: Card 7"></div>
+                                <div class="news-card" data-popup-image="./News_Images/Pop8.png"><img src="./News_Images/소식8.png" alt="News: Card 8"></div>
+                                <div class="news-card" data-popup-image="./News_Images/Pop9.png"><img src="./News_Images/소식9.png" alt="News: Card 9"></div>
+                                <div class="news-card" data-popup-image="./News_Images/Pop10.png"><img src="./News_Images/소식10.png" alt="News: Card 10"></div>
+                                <div class="news-card" data-popup-image="./News_Images/Pop11.png"><img src="./News_Images/소식11.png" alt="News: Card 11"></div>
+                            </div>
+                        </div>
+                        <img class="icon-right" alt="Right Arrow" src="./News_Images/Right.svg">
+                    </div>
+                </div>
+            </div>
+             <!-- Individual Footer Removed -->
+            <div class="popup-overlay" id="news-popup" style="display: none;">
+                <div class="popup-wrapper">
+                    <div class="popup-content">
+                        <img id="popup-content-image" src="" alt="News Details">
+                    </div>
+                </div>
+                <img class="popup-close-btn" id="close-popup-btn" alt="Close button" src="./News_Images/Close_round.png">
+            </div>
+        </section>
+    </main>
+
+    <!-- 
+    ==========================================================================
+     COMMON FOOTER HTML
+    ==========================================================================
+    -->
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="footer-content-wrapper">
+                <div class="footer-left">
+                    <div class="company-info">
+                        <div class="company-info-row">
+                            <div>(주)제제컴즈</div>
+                            <div>대표자 : 김준강</div>
+                            <div>사업자등록번호 : 641-88-00828</div>
+                        </div>
+                        <div class="company-info-row">
+                            <div>통신판매업신고 : 제2021-성남수정-1335호</div>
+                        </div>
+                        <p class="address">13449 경기 성남시 수정구 달래내로 46, 성남글로벌융합센터 A동 405호</p>
+                    </div>
+                    <div class="contact-info">
+                        <span>T. 070-4252-5571</span>
+                        <span>E. jejecomms@gmail.com</span>
+                        <span>F. 0508-910-5575</span>
+                    </div>
+                </div>
+                <div class="footer-right-links">
+                    <b>회사소개</b>
+                    <b>이용약관</b>
+                    <b>개인정보처리방침</b>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            // --- MAIN NAVIGATION SCRIPT ---
+            const navButtons = document.querySelectorAll('.header-nav-sub .nav-button');
+            const pageSections = document.querySelectorAll('.page-section');
+
+            navButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.dataset.target;
+                    if (!targetId) return;
+
+                    // Deactivate all sections and buttons
+                    pageSections.forEach(section => section.classList.remove('active'));
+                    navButtons.forEach(btn => btn.classList.remove('active-yellow'));
+
+                    // Activate the target section and button
+                    document.getElementById(targetId).classList.add('active');
+                    button.classList.add('active-yellow');
+                });
+            });
+
+            // --- FAQ Section Accordion Script ---
+            const faqContainer = document.getElementById('faq-section');
+            if (faqContainer) {
+                const faqItems = faqContainer.querySelectorAll('.text-wrapper');
+                faqItems.forEach(item => {
+                    const questionHeader = item.querySelector('.text5');
+                    if (questionHeader) {
+                        questionHeader.addEventListener('click', () => {
+                            const wasActive = item.classList.contains('active');
+                            faqItems.forEach(otherItem => otherItem.classList.remove('active'));
+                            if (!wasActive) {
+                                item.classList.add('active');
+                            }
+                        });
+                    }
+                });
+
+                // --- FAQ Pagination Script ---
+                const paginationContainer = faqContainer.querySelector('.page');
+                if (paginationContainer) {
+                    const pageButtons = paginationContainer.querySelectorAll('.pagination-number-btn');
+                    pageButtons.forEach(button => {
+                        button.addEventListener('click', () => {
+                            // Find the currently active button and deactivate it
+                            const currentActive = paginationContainer.querySelector('.pagination-atomic2');
+                            if (currentActive) {
+                                currentActive.classList.remove('pagination-atomic2');
+                                currentActive.classList.add('pagination-atomic3');
+                            }
+                            
+                            // Activate the clicked button
+                            button.classList.add('pagination-atomic2');
+                            button.classList.remove('pagination-atomic3');
+                        });
+                    });
+                }
+            }
+
+            // --- News Section Carousel & Popup Script ---
+            const newsContainer = document.getElementById('news-section');
+            if (newsContainer) {
+                // Popup Logic
+                const newsCards = newsContainer.querySelectorAll('.news-card');
+                const popup = newsContainer.querySelector('#news-popup');
+                const closeBtn = newsContainer.querySelector('#close-popup-btn');
+                const popupImage = newsContainer.querySelector('#popup-content-image');
+    
+                const closePopup = () => popup.style.display = 'none';
+    
+                newsCards.forEach(card => {
+                    card.addEventListener('click', () => {
+                        const imageSrc = card.dataset.popupImage;
+                        if (imageSrc) {
+                            popupImage.src = imageSrc;
+                            popup.style.display = 'flex';
+                        }
+                    });
+                });
+    
+                if (closeBtn) closeBtn.addEventListener('click', closePopup);
+                if (popup) popup.addEventListener('click', (event) => {
+                    if (event.target === popup) closePopup();
+                });
+
+                // Carousel Logic
+                const track = newsContainer.querySelector('.cards-container-inner');
+                const cards = newsContainer.querySelectorAll('.news-card');
+                const leftButton = newsContainer.querySelector('.icon-left');
+                const rightButton = newsContainer.querySelector('.icon-right');
+    
+                if (track && cards.length > 0 && leftButton && rightButton) {
+                    const cardWidth = 250, gap = 33, step = cardWidth + gap;
+                    const maxIndex = cards.length - 4;
+                    let currentIndex = 0;
+        
+                    const moveToSlide = () => track.style.transform = `translateX(-${currentIndex * step}px)`;
+        
+                    rightButton.addEventListener('click', () => {
+                        currentIndex = (currentIndex >= maxIndex) ? 0 : currentIndex + 1;
+                        moveToSlide();
+                    });
+        
+                    leftButton.addEventListener('click', () => {
+                        currentIndex = (currentIndex <= 0) ? maxIndex : currentIndex - 1;
+                        moveToSlide();
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
