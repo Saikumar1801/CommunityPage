@@ -1,12 +1,10 @@
-# QRAlliymi Website – Community Page Task
+# 📌 QRAlliymi Community Hub
 
-This repository contains the integrated **QRAlliymi Community Page**, which combines the **News (소식)**, **FAQ**, and **Contact Us (문의하기)** sections into a single, navigable page. It aligns with the design and navigation standards of the main QRAlliymi site, with all functionality encapsulated in one file.
+This repository contains the **QRAlliymi Community Hub**, a unified single-page web application that integrates five key sections of the QRAlliymi service into one self-contained, portable HTML file.
 
 ---
 
 ## 📁 Project Directory: `QR/`
-
-Here is a proposed structure and explanation for the `QR/` directory to accommodate the integrated community page:
 
 ```bash
 QR/
@@ -16,10 +14,13 @@ QR/
 ├── Home_Images/
 ├── Home_Video/
 ├── Community_Page/
-│ ├── ContactUs_Images/ # ✅ All images used for the Contact Us section
-│ ├── FAQ_Images/ # ✅ All images used for the FAQ section
-│ ├── News_Images/ # ✅ All images used for the News carousel and popup
-│ └── index.html # ✅ Final Community Page file (all inline CSS/JS)
+│ ├── Review_Images/ # Review section images
+│ ├── Coupon_Images/ # Coupon section images
+│ ├── Login_Images/ # Login popup images
+│ ├── ContactUs_Images/ # Contact Us form images
+│ ├── FAQ_Images/ # FAQ accordion images
+│ ├── News_Images/ # News carousel images
+│ └── index.html # ✅ Main all-in-one Community Hub page
 ├── js/
 ├── PHPMailer/
 ├── QRUserGuide/
@@ -27,62 +28,71 @@ QR/
 ├── vendor/
 ├── composer.json
 ├── composer.lock
-├── index.html
-└── ...
+└── index.html
+
 ```
 
+---
+
+## 🎯 Key Features
+
+- ✅ **Unified Interface**: All five sections — **리뷰 (Review)**, **쿠폰 네비게이션 (Coupon Navigation)**, **FAQ**, **문의하기 (Contact Us)**, and **소식 (News)** — in a single cohesive file.
+- ✅ **Tab-Based Navigation**: SPA-like behavior with dynamic section switching using inline JavaScript.
+- ✅ **Interactive News Carousel**: Responsive, swipeable image carousel with hover effects and navigation arrows.
+- ✅ **Multi-Step Modal System**: Interactive flows for login, review submissions, and coupon participation.
+- ✅ **Dynamic FAQ Accordion**: Only one FAQ expands at a time with smooth transitions and image-based answers.
+- ✅ **Styled Contact Form**: Custom checkboxes and a clean, responsive layout.
+- ✅ **Consistent Branding**: Maintains QRAlliymi’s look and feel using official fonts and color schemes.
+- ✅ **Self-Contained**: All styles and scripts are inlined in `index.html` — no external JS or CSS files required.
+- ✅ **Portable**: Easily deployable on any web server without additional configuration.
 
 ---
 
-## 🎯 Key Features Implemented
+## 🧪 How to Use
 
-- ✅ **Unified Community Hub**: Integrates News, FAQ, and Contact Us sections into a single page with tab-based navigation.  
-- ✅ **Interactive News Carousel**: A responsive, horizontally-scrolling image carousel with left/right navigation controls.  
-- ✅ **News Image Popup**: Clicking a news card opens a full-size image in a modal overlay with a close button.  
-- ✅ **Dynamic FAQ Accordion**: Questions can be expanded to show image-based answers and collapsed, with smooth transitions.  
-- ✅ **Shared Navigation & Footer**: Maintains consistent header and footer design with the rest of the QRAlliymi website.  
-- ✅ **All-in-One File**: All HTML, CSS, and JavaScript are contained within a single `index.html` file for maximum portability.  
-- ✅ **Consistent Branding**: Uses QRAlliymi logos, fonts (`NanumSquare`, `Yoon Childfundkorea`), and brand colors.  
+1. **Clone or Download the Repository**
 
----
+```bash
+git clone https://github.com/your-repo-name.git
+```
+2. **Place the Folder**
 
-## 📥 How to Use
+Copy the entire Community_Page/ directory into the QR/ directory of your main project.
 
-1. **Clone or download** the repository.
+3. **Run on Localhost or Server**
 
-2. Move the `QR/` folder into your web server's root directory (e.g., `C:\xampp\htdocs\`).
-
-3. Open your browser and navigate to:
-
+Open the main hub page in your browser:
 ```bash
 http://localhost/QR/Community_Page/index.html
 ```
 
+💡 Note: The Review page is active by default. Use the sub-navigation bar to switch between the "리뷰", "쿠폰 네비게이션", "FAQ", "문의하기", and "소식" sections.
 
-> 💡 **Note**: The News page is active by default. Use the sub-navigation bar to switch between the "소식", "FAQ", and "문의하기" sections.
+Make sure to include all image assets inside their respective folders:
 
-4. Make sure to include all contents inside:
+Community_Page/Review_Images/
 
-- `Community_Page/ContactUs_Images/`  
-- `Community_Page/FAQ_Images/`  
-- `Community_Page/News_Images/`  
+Community_Page/Coupon_Images/
 
----
+Community_Page/Login_Images/
+
+Community_Page/ContactUs_Images/
+
+Community_Page/FAQ_Images/
+
+Community_Page/News_Images/
 
 ## 📝 Additional Notes
+Tab Navigation:
+The sub-navigation bar controls which section is displayed. This functionality is handled by inline JavaScript using a data-target attribute to toggle the .active class on the corresponding section.
 
-- **Tab Navigation**:  
-  The sub-navigation bar (리뷰, 쿠폰..., FAQ, 문의하기, 소식) controls which section is visible. Functionality is handled by inline JavaScript toggling the `.active` class.
+Content Updates:
+News: Replace image files in News_Images/ and update the src and data-popup-image attributes for each .news-card in the HTML.
+FAQ: Edit the question text inside .subtitle2-nanumsquare and update the answer image src inside the matching .answer-content container.
+Review/Coupon Modals: Update images and text directly within the respective popup HTML structures (#review-popup, #coupon-detail-popup, etc.).
 
-- **Content Updates**:
-  - **News**: Replace files in the `News_Images/` directory and update the `src` and `data-popup-image` attributes in the HTML.
-  - **FAQ**: Edit the subtitle text and image `src` inside `.answer-content` in the HTML.
+Portability:
+All tab-switching, accordion, carousel, and popup behaviors are handled via inline JavaScript, with no external JS dependencies. This makes the project fully self-contained and easy to integrate.
 
-- **Portability**:  
-  All tab-switching, accordion, carousel, and popup functions are handled via **inline JavaScript** with **no external dependencies**.
-
-- **Dependencies**:  
-  Relies on **Google Fonts** via internet connection, as specified in the `<head>` tag.
-
----
-
+Dependencies:
+The project uses Google Fonts loaded from the internet (as specified in the <head> tag). Fonts may not render correctly in an offline environment.
