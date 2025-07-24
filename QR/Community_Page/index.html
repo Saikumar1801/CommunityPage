@@ -6,9 +6,11 @@
     <title>QR 알리미</title>
     
     <!-- Shared Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=NanumSquare:wght@300;400;700;800&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=NanumSquare:wght@300;400;500;600;700;800&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yoon+Childfundkorea:wght@400&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=HanwhaGothic:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=HanwhaGothic:wght@400;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" />
+
 
     <style>
         /* --- GLOBAL & NAVIGATION STYLES --- */
@@ -104,6 +106,379 @@
         .page-section.active {
             display: block; /* Show the active section */
         }
+        
+        /* 
+        ==========================================================================
+         START: REVIEW SECTION STYLES
+        ==========================================================================
+        */
+        #review-section {
+            position: relative;
+            background-color: #fff;
+            overflow: hidden;
+            text-align: left;
+            font-size: 16px;
+            color: rgba(0, 0, 0, 0.5);
+            font-family: NanumSquare, sans-serif;
+            padding-bottom: 80px;
+        }
+        #review-section .title-parent {
+            width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 64px 0px;
+            box-sizing: border-box;
+            font-size: 30px;
+            color: #000;
+        }
+        #review-section .title {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 0 50px;
+            gap: 20px;
+        }
+        #review-section .star-dynamic-clay-icon {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+        }
+        #review-section .title-nanumsquare {
+            position: relative;
+            font-weight: 800;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+        #review-section .text { display: flex; flex-direction: row; align-items: center; justify-content: center; }
+
+        #review-section .contents {
+            align-self: stretch;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 16px;
+            font-size: 20px;
+            color: rgba(0, 0, 0, 0.85);
+        }
+        #review-section .promo-box {
+            width: 1240px;
+            background-color: #f6f6f9;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 50px;
+            box-sizing: border-box;
+        }
+        #review-section .promo-details {
+            align-self: stretch;
+            flex: 1;
+            border-left: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 50px;
+            font-size: 16px;
+            padding-left: 50px;
+        }
+        #review-section .reviews-list-container {
+            align-self: stretch;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 32px;
+            font-size: 15px;
+            color: #000;
+            font-family: HanwhaGothic;
+        }
+        #review-section .reviews-list {
+            align-self: stretch;
+            border-top: 1px solid #000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        #review-section .review-image {
+            width: 100%;
+            display: block;
+            cursor: pointer;
+        }
+        #review-section .pagination-container-wrapper {
+            align-self: stretch;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            color: rgba(0, 0, 0, 0.5);
+        }
+        #review-section .je { line-height: 150%; }
+        /* Scoped Pagination */
+        #review-section .page { border: 1px solid rgba(0, 0, 0, 0.15); display: flex; flex-direction: row; align-items: center; justify-content: flex-start; }
+        #review-section .pagination-atomic1 { width: 35px; background-color: #fff; border-right: 1px solid rgba(0, 0, 0, 0.15); box-sizing: border-box; height: 35px; display: flex; flex-direction: row; align-items: center; justify-content: center; padding: 0px 8px; font-size: 16px; color: #8a949e; cursor: pointer; }
+        #review-section .pagination-atomic1 .iconarrow-left { width: 32px; position: relative; height: 32px; }
+        #review-section .pagination-atomic1 .vector-icon { position: absolute; height: 66.88%; width: 40%; top: 16.67%; right: 34.17%; bottom: 16.46%; left: 25.83%; max-width: 100%; overflow: hidden; max-height: 100%; object-fit: contain; }
+        #review-section .pagination-atomic2 { width: 35px; background-color: #efefef; border-right: 1px solid rgba(0, 0, 0, 0.15); box-sizing: border-box; height: 35px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #000; cursor: pointer; }
+        #review-section .pagination-atomic3 { width: 35px; background-color: #fff; border-right: 1px solid rgba(0, 0, 0, 0.15); box-sizing: border-box; height: 35px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; }
+        #review-section .number { width: 16px; height: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        #review-section .pagination-atomic12 { width: 35px; background-color: #fff; height: 35px; display: flex; flex-direction: row; align-items: center; justify-content: center; padding: 0px 8px; box-sizing: border-box; font-size: 13.6px; color: #464c53; cursor: pointer; }
+        #review-section .pagination-atomic12 .iconarrow-left { width: 32px; position: relative; height: 32px; }
+        #review-section .pagination-atomic12 .vector-icon { position: absolute; height: 66.88%; width: 40%; top: 16.67%; right: 25.83%; bottom: 16.46%; left: 34.17%; max-width: 100%; overflow: hidden; max-height: 100%; object-fit: contain; }
+
+        /* 
+        ==========================================================================
+         START: COUPON NAVIGATION SECTION STYLES
+        ==========================================================================
+        */
+        #coupon-section {
+            background-color: #fff;
+            padding-bottom: 100px;
+        }
+        #coupon-section .title-parent {
+            width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: 30px;
+            color: #000;
+        }
+        #coupon-section .title {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 64px 0px 50px;
+            gap: 20px;
+        }
+        #coupon-section .location-dynamic-clay-icon {
+            width: 40px;
+            position: relative;
+            height: 40px;
+            object-fit: cover;
+        }
+        #coupon-section .title-nanumsquare {
+            position: relative;
+            font-weight: 800;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+        #coupon-section .text {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        #coupon-section .content-group {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 0px 0px 100px;
+            gap: 64px;
+            text-align: center;
+            font-size: 15px;
+            color: rgba(0, 0, 0, 0.85);
+        }
+        #coupon-section .info-banner-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        #coupon-section .event-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px 16px;
+            justify-content: start;
+            align-content: start;
+        }
+        #coupon-section .event-card-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            object-position: center;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            aspect-ratio: 292 / 451;
+            cursor: pointer;
+        }
+
+        /* Pop-up 1 (Details) Styles for Coupon Section */
+        #coupon-detail-popup {
+            max-width: 800px;
+            width: 90%;
+        }
+        #coupon-detail-popup .image-1856-icon {
+            width: 100%;
+            position: relative;
+            max-height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        #coupon-detail-popup .text-parent {
+            align-self: stretch;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 24px;
+            gap: 16px;
+        }
+        #coupon-detail-popup .popup-body {
+            align-self: stretch;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        #coupon-detail-popup .popup-header {
+            align-self: stretch;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 16px 0px;
+            gap: 8px;
+        }
+        #coupon-detail-popup .popup-status { 
+            border: 1px solid #ff0000;
+            display: inline-flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 6px 8px;
+            font-size: 13px;
+            color: #ff0000;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-weight: bold;
+        }
+        #coupon-detail-popup .div1 {
+            position: relative;
+            line-height: 140%;
+            color: rgba(0, 0, 0, 0.6);
+            white-space: pre-wrap;
+            font-size: 13px;
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+        #coupon-detail-popup .b1 {
+            position: relative;
+            font-size: 18px;
+            line-height: 140%;
+            color: #000;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-weight: bold;
+        }
+        #coupon-detail-popup .qr-app-30-wrapper {
+            align-self: stretch;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 0px;
+            font-size: 15px;
+            color: rgba(0, 0, 0, 0.6);
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+        #coupon-detail-popup .qr-app-container {
+            flex: 1;
+            position: relative;
+            line-height: 150%;
+        }
+        #coupon-detail-popup .qr-app-container p { margin: 0; }
+        #coupon-detail-popup .participate-button {
+            align-self: stretch;
+            background-color: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 0px;
+            font-size: 18px;
+            color: #000;
+            cursor: pointer;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-weight: bold;
+        }
+        
+        /* Pop-up 2 (Login) Styles for Coupon Section */
+        #coupon-login-popup {
+            background-color: #fff;
+            max-width: 480px;
+            width: 90%;
+            font-family: 'HanwhaGothic', sans-serif;
+        }
+        #coupon-login-popup .login-parent {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 32px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+        #coupon-login-popup .login {
+            width: 410px;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 32px;
+        }
+        #coupon-login-popup .login-frame-parent {
+            align-self: stretch;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 16px;
+            text-align: left;
+            font-size: 15px;
+            color: #4d4d4d;
+        }
+        #coupon-login-popup .login-frame-container {
+            align-self: stretch;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 32px;
+        }
+        #coupon-login-popup .login-info-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        #coupon-login-popup .button-parent {
+            align-self: stretch;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 8px;
+            text-align: center;
+            color: #000;
+        }
+        #coupon-login-popup .social-login-button {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+
 
         /* 
         ==========================================================================
@@ -126,7 +501,7 @@
             /* Converted from absolute to relative positioning */
             position: relative;
             width: 1240px;
-            margin: 64px auto 0; /* Replaces top/left absolute positioning */
+            margin: 0px auto 0; /* Replaces top/left absolute positioning */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -181,7 +556,7 @@
             position: relative;
             background-color: #fff;
             padding-top: 64px;
-            padding-bottom: 80px;
+            padding-bottom: 64px;
             overflow: hidden;
             text-align: left;
             font-size: 16px;
@@ -195,7 +570,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding: 64px 0px;
+            padding: 0px 0px;
             box-sizing: border-box;
             gap: 64px;
             font-size: 30px;
@@ -423,7 +798,7 @@
             text-align: left;
             font-size: 16px;
             color: rgba(0, 0, 0, 0.5);
-            padding-bottom: 100px; /* Add some space at the bottom */
+            padding-bottom: 100px;padding-top: 64px;
         }
         #news-section .image-1857-icon {
             position: absolute;
@@ -443,7 +818,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 128px 0px 0px; /* Adjusted padding to position content */
+            padding: 0px 0px 0px; /* Adjusted padding to position content */
             box-sizing: border-box;
             gap: 100px;
             font-size: 30px;
@@ -456,7 +831,7 @@
         #news-section .icon-left-parent { flex: 1; display: flex; align-items: center; justify-content: space-between; }
         #news-section .icon-left, #news-section .icon-right { width: 51.1px; height: 51.1px; cursor: pointer; z-index: 5; }
         #news-section .group { width: 1100px; overflow: hidden; }
-        #news-section .cards-container-inner { display: flex; gap: 33px; transition: transform 0.5s ease-in-out; }
+        #news-section .cards-container-inner { display: flex; gap: 33px; transition: transform 0.5s ease-in-out; margin-top: 64px;}
         #news-section .news-card { box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1); border-radius: 12px; overflow: hidden; transition: transform 0.2s, opacity 0.2s; cursor: pointer; line-height: 0; width: 250px; flex-shrink: 0; }
         #news-section .news-card:hover { opacity: 0.85; transform: translateY(-5px); }
         #news-section .news-card img { display: block; width: 100%; height: auto; }
@@ -487,6 +862,115 @@
             z-index: 2002;
             cursor: pointer;
         }
+
+        /* 
+        ==========================================================================
+         START: POPUP & REVIEW MODAL STYLES (GLOBAL)
+        ==========================================================================
+        */
+        #popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1500; /* Below popups but above page content */
+        }
+        .popup-common {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1501;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            background-color: #fff;
+			border-radius: 8px;
+        }
+        /* Customization Request: Sharp edges for specific popups */
+        #login-popup,
+        #coupon-detail-popup,
+        #coupon-login-popup {
+            border-radius: 0;
+        }
+		.close-btn-img {
+			position: absolute;
+			top: -20px;
+			right: -20px;
+			width: 20px;
+			height: 20px;
+			background: #808080;
+            border-radius: 50%;
+			border: 0;
+			padding: 0;
+			cursor: pointer;
+			z-index: 1502;
+		}
+		.close-btn-img img { width: 100%; height: 100%; display: block; }
+
+        /* New class to handle scrolling inside popups to not hide the close button */
+        .popup-scroll-content {
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+		
+        /* Pop-up: Login */
+		.login-div { position: relative; line-height: 150%; }
+		.login-wrapper { align-self: stretch; border-bottom: 2px solid #000; display: flex; flex-direction: row; align-items: center; justify-content: flex-start; padding: 8px 0px; }
+		.login-info-image { width: 100%; height: auto; display: block; }
+		.social-login-button { width: 100%; height: auto; cursor: pointer; }
+		.button-parent { align-self: stretch; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 8px; text-align: center; color: #000; }
+		.login-frame-container { align-self: stretch; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 32px; }
+		.login-frame-parent { align-self: stretch; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 16px; text-align: left; font-size: 15px; color: #4d4d4d; }
+		.login { width: 410px; background-color: #fff; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 32px; }
+		.login-parent { position: relative; background-color: #fff; width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: flex-start; padding: 32px; box-sizing: border-box; text-align: center; font-size: 26px; color: #000; font-family: HanwhaGothic; }
+
+        /* Pop-up: Write Review */
+		.review-div1 { position: relative; line-height: 150%; font-weight: 700; }
+		.review-wrapper { align-self: stretch; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; text-align: center; font-size: 22px; font-weight: 800; font-family: 'HanwhaGothic', sans-serif;}
+		.review-div2 { width: 60px; position: relative; line-height: 150%; display: inline-block; flex-shrink: 0; font-weight: 700; }
+		.review-frame-parent { flex: 1; display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 0px; font-size: 13px; color: #808080; }
+    	.review-frame-parent .review-div1 { font-weight: 600; }
+		.review-tr { align-self: stretch; border-bottom: 1px dashed rgba(0, 0, 0, 0.1); display: flex; flex-direction: row; align-items: flex-start; justify-content: flex-start; padding: 16px; gap: 32px; }
+		.review-jejeeeeegmailcom { position: relative; line-height: 140%; }
+		.review-div5 { position: relative; font-size: 13px; line-height: 150%; color: #808080; font-weight: 200;}
+		.review-jejeeeeegmailcom-parent { flex: 1; display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 0px; text-align: right; color: rgba(0, 0, 0, 0.7); }
+		.review-tr1 { align-self: stretch; border-bottom: 1px dashed rgba(0, 0, 0, 0.1); display: flex; flex-direction: row; align-items: center; justify-content: flex-start; padding: 16px; gap: 32px; }
+		.review-input { font-family: 'NanumSquare', sans-serif; font-size: 15px; line-height: 150%; border: none; background: transparent; width: 100%; height: 100%; resize: none; outline: none; }
+		.review-container { flex: 1; border: 1px solid rgba(0, 0, 0, 0.1); box-sizing: border-box; height: 39px; overflow: hidden; display: flex; flex-direction: row; align-items: center; justify-content: flex-start; padding: 8px 12px; }
+		.review-textarea-bordered { flex: 1; border: 1px solid rgba(0, 0, 0, 0.1); box-sizing: border-box; min-height: 150px; padding: 12px; width: 100%; resize: vertical; font-family: 'NanumSquare', sans-serif;color: rgba(0, 0, 0, 0.7); font-size: 15px; line-height: 1.5; background: transparent; outline: none; }
+		.review-group { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; position: relative; }
+    	.review-group .review-div1 { font-weight: 700; }
+		.review-bitcoin-iconsplus-outline { width: 21.8px; position: relative; max-height: 100%; overflow: hidden; flex-shrink: 0; }
+		.review-box { background-color: #fafafa; display: flex; flex-direction: row; align-items: center; justify-content: center; padding: 29.1px; width: 80px; height: 80px; box-sizing: border-box; cursor: pointer; }
+		.review-box-parent { display: flex; flex-direction: row; align-items: center; justify-content: flex-start; gap: 10px; font-size: 13.64px; flex: 1; flex-wrap: wrap;}
+    	.review-image-preview { width: 80px; height: 80px; object-fit: cover; border-radius: 4px; }
+		.review-table { align-self: stretch; border-top: 2px solid #000; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; }
+		.review-table-wrapper { width: 542px; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; font-size: 15px; }
+		.review-main-menu-bar-atomic-pc { width: 106px; border-radius: 4px; background-color: #fff; border: 1px solid #ccc; box-sizing: border-box; display: flex; flex-direction: row; align-items: center; justify-content: center; padding: 8px 16px; gap: 8px; cursor: pointer; }
+    	.review-main-menu-bar-atomic-pc .review-div1 { color: #4d4d4d; font-weight: 700; }
+		.review-main-menu-bar-atomic-pc1 { width: 106px; border-radius: 4px; background-color: #000; display: flex; flex-direction: row; align-items: center; justify-content: center; padding: 8px 16px; box-sizing: border-box; gap: 8px; color: #fff; cursor: pointer; }
+    	.review-main-menu-bar-atomic-pc1 .review-div1 { font-weight: 0; }
+		.review-main-menu-bar-atomic-pc-parent { align-self: stretch; display: flex; flex-direction: row; align-items: flex-start; justify-content: center; gap: 8px; font-size: 14px; }
+		.review-div { background-color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 24px; gap: 22px; }
+		.review-parent { position: relative; width: 100%; display: flex; flex-direction: row; align-items: flex-start; justify-content: flex-start; text-align: left; color: #000; font-family: HanwhaGothic; }
+		.review-vector-parent { cursor: pointer; }
+		.rating-star { width: 34px; height: 33px; }
+		.help-icon-class { display: block; width: 20px; height: 20px; cursor: pointer; }
+		.help-info-class { display: none; position: absolute; right: 100%; top: 50%; transform: translateY(-30%); margin-right: 0px; width: 350px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0); z-index: 20; }
+        
+        /* Pop-up: Review Complete */
+		.review-complete-content { position: relative; background-color: #fff; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; padding: 24px; box-sizing: border-box; gap: 16px; text-align: left; font-size: 22px; color: #000; font-family: 'HanwhaGothic', sans-serif; width: 520px;  }
+		.rc-div1 { position: relative; line-height: 150%; font-weight: 700; }
+		.rc-wrapper { align-self: stretch; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; text-align: center; width: 100%; }
+		.rc-p { margin: 0; }
+		.rc-jejeeeeegmailcom-container { position: relative; line-height: 140%; }
+		.rc-jejeeeeegmailcom-wrapper { align-self: stretch; display: flex; flex-direction: row; align-items: flex-start; justify-content: left; font-size: 15px; color: rgba(0, 0, 0, 0.7); text-align: left; padding: 10px 0; }
+		.rc-main-menu-bar-atomic-pc { width: 106px; border-radius: 99px; background-color: #fff; color: #000; border: 1px solid rgba(0, 0, 0, 0.1); box-sizing: border-box; display: flex; flex-direction: row; align-items: center; justify-content: center; padding: 8px 16px; gap: 8px; cursor: pointer; font-size: 14px; }
+		.rc-main-menu-bar-atomic-pc-wrapper { align-self: stretch; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-top: 10px;padding-left: 360px }
+
 
         /* 
         ==========================================================================
@@ -592,17 +1076,95 @@
         <div class="header-bottom">
             <div class="header-bottom-inner">
                 <nav class="header-nav-sub">
-                    <button class="nav-button"><b class="faq">리뷰</b></button>
-                    <button class="nav-button"><b class="faq">쿠폰 네비게이션</b></button>
+                    <button class="nav-button active-yellow" data-target="review-section"><b class="faq">리뷰</b></button>
+                    <button class="nav-button" data-target="coupon-section"><b class="faq">쿠폰 네비게이션</b></button>
                     <button class="nav-button" data-target="faq-section"><b class="faq">FAQ</b></button>
                     <button class="nav-button" data-target="contact-us-section"><b class="faq">문의하기</b></button>
-                    <button class="nav-button active-yellow" data-target="news-section"><b class="faq">소식</b></button>
+                    <button class="nav-button" data-target="news-section"><b class="faq">소식</b></button>
                 </nav>
             </div>
         </div>
     </header>
 
     <main>
+        <!-- 
+        ==========================================================================
+         REVIEW SECTION HTML
+        ==========================================================================
+        -->
+        <section id="review-section" class="page-section active">
+            <div class="title-parent">
+      			<div class="title">
+        				<img class="star-dynamic-clay-icon" alt="" src="QR/Community_Page/Review_Images/star-dynamic-clay.png">
+        				<div class="text"><div class="title-nanumsquare">리뷰</div></div>
+      			</div>
+      			<div class="contents">
+        				<div class="promo-box">
+							<img src="QR/Community_Page/Review_Images/Rate.png" alt="Review Score section" style="width: 480px; height: 114px; object-fit: contain;">
+          					<div class="promo-details">
+								<img src="QR/Community_Page/Review_Images/R_Info.png" alt="Review promotion text" style="width: 460px; height: 70px; object-fit: contain;">
+								<img id="write-review-btn" src="QR/Community_Page/Review_Images/R_Button.png" alt="Write a review button" style="width: 120px; height: 40px; object-fit: contain; cursor: pointer;">
+          					</div>
+        				</div>
+        				<div class="reviews-list-container">
+          					<div class="reviews-list">
+								<img src="QR/Community_Page/Review_Images/R1.png" alt="User Review" class="review-image">
+								<img src="QR/Community_Page/Review_Images/R2.png" alt="User Review" class="review-image">
+								<img src="QR/Community_Page/Review_Images/R3.png" alt="User Review" class="review-image">
+								<img src="QR/Community_Page/Review_Images/R4.png" alt="User Review" class="review-image">
+								<img src="QR/Community_Page/Review_Images/R5.png" alt="User Review" class="review-image">
+								<img src="QR/Community_Page/Review_Images/R6.png" alt="User Review" class="review-image">
+          					</div>
+          					<div class="pagination-container-wrapper">
+            						<div class="page-wrapper">
+              							<div class="page">
+                								<div class="pagination-atomic1"><div class="icon-size1"><div class="iconarrow-left"><img class="vector-icon" alt="" src="QR/Community_Page/Review_Images/Left.png"></div></div></div>
+                								<div class="pagination-atomic2"><div class="number"><div class="je">1</div></div></div>
+                								<div class="pagination-atomic3"><div class="number"><div class="je">2</div></div></div>
+                								<div class="pagination-atomic3"><div class="number"><div class="je">3</div></div></div>
+                								<div class="pagination-atomic3"><div class="number"><div class="je">4</div></div></div>
+                								<div class="pagination-atomic3"><div class="number"><div class="je">5</div></div></div>
+                								<div class="pagination-atomic3"><div class="number"><div class="je">6</div></div></div>
+                								<div class="pagination-atomic3"><div class="number"><div class="je">7</div></div></div>
+                								<div class="pagination-atomic3"><div class="number"><div class="je">8</div></div></div>
+                								<div class="pagination-atomic3"><div class="number"><div class="je">9</div></div></div>
+                								<div class="pagination-atomic3"><div class="number"><div class="je">10</div></div></div>
+                								<div class="pagination-atomic12"><div class="icon-size1"><div class="iconarrow-left"><img class="vector-icon" alt="" src="QR/Community_Page/Review_Images/Right.png"></div></div></div>
+              							</div>
+            						</div>
+          					</div>
+        				</div>
+      			</div>
+    		</div>
+        </section>
+
+        <!-- 
+        ==========================================================================
+         COUPON NAVIGATION SECTION HTML
+        ==========================================================================
+        -->
+        <section id="coupon-section" class="page-section">
+            <div class="title-parent">
+                <div class="title">
+                    <img class="location-dynamic-clay-icon" alt="Location Icon" src="QR/Community_Page/Coupon_Images/location-dynamic-clay.png">
+                    <div class="text">
+                        <div class="title-nanumsquare">쿠폰 네비게이션</div>
+                    </div>
+                </div>
+                <div class="content-group">
+                    <img class="info-banner-image" src="QR/Community_Page/Coupon_Images/평점.png" alt="쿠폰 네비게이션 정보 배너">
+                    <div class="event-grid">
+                        <img class="event-card-image" id="c1-trigger" alt="리뷰 이벤트 카드" src="QR/Community_Page/Coupon_Images/C1.png">
+                        <img class="event-card-image" alt="시그니처 라이브러리 오픈 이벤트 카드" src="QR/Community_Page/Coupon_Images/C2.png">
+                        <img class="event-card-image" alt="LIFE WITH 이벤트 카드" src="QR/Community_Page/Coupon_Images/C3.png">
+                        <img class="event-card-image" alt="카카오의 약속과 책임 이벤트 카드" src="QR/Community_Page/Coupon_Images/C4.png">
+                        <img class="event-card-image" alt="카카오의 약속과 책임 이벤트 카드" src="QR/Community_Page/Coupon_Images/C5.png">
+                        <img class="event-card-image" alt="카카오의 약속과 책임 이벤트 카드" src="QR/Community_Page/Coupon_Images/C6.png">
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 
         ==========================================================================
          CONTACT US SECTION HTML
@@ -657,7 +1219,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Individual Footer Removed -->
         </section>
 
         <!-- 
@@ -712,7 +1273,7 @@
                                     </div>
                                     <img class="frame-icon" alt="arrow" src="QR/Community_Page/FAQ_Images/Frame.png">
                                 </div>
-                                 <div class="text9"><div class="answer-content"><img src="QR/Community_Page/FAQ_Images/A3(1).png" alt="Answer 3"></div></div>
+                                 <div class="text9"><div class="answer-content"><img src="QR/Community_Page/FAQ_Images/A3.png" alt="Answer 3"></div></div>
                             </div>
                             <div class="text-wrapper">
                                 <div class="text5">
@@ -857,7 +1418,6 @@
 
                     </div>
                 </div>
-                 <!-- Individual Footer Removed -->
             </div>
         </section>
 
@@ -866,7 +1426,7 @@
          NEWS SECTION HTML
         ==========================================================================
         -->
-        <section id="news-section" class="page-section active">
+        <section id="news-section" class="page-section">
             <img class="image-1857-icon" alt="Background banner" src="QR/Community_Page/News_Images/background.png">
             <div class="title-parent">
                 <div class="title">
@@ -895,7 +1455,6 @@
                     </div>
                 </div>
             </div>
-             <!-- Individual Footer Removed -->
             <div class="popup-overlay" id="news-popup" style="display: none;">
                 <div class="popup-wrapper">
                     <div class="popup-content">
@@ -941,6 +1500,186 @@
             </div>
         </div>
     </footer>
+
+    <!-- 
+    ==========================================================================
+     POPUP MODALS
+    ==========================================================================
+    -->
+    <div id="popup-overlay"></div>
+
+    <!-- Review Section Popups -->
+	<div id="login-popup" class="popup-common">
+		<button id="close-login-popup-btn" class="close-btn-img">
+			<img src="QR/Community_Page/Review_Images/Close_round.png" alt="Close Popup">
+		</button>
+        <div class="popup-scroll-content">
+            <div class="login-parent">
+                <div class="login">
+                        <img src="QR/Community_Page/Login_Images/Title.png" alt="로그인">
+                        <div class="login-frame-parent">
+                            <div class="login-frame-container">
+                                <img class="login-info-image" src="QR/Community_Page/Login_Images/Info.png" alt="QR알리미 앱 로그인 안내. 반드시 앱과 동일한 계정으로 연동로그인 해주세요.">
+                                <div class="button-parent">
+                                    <img class="social-login-button" src="QR/Community_Page/Login_Images/button.png" alt="Google 로그인">
+                                    <img class="social-login-button" src="QR/Community_Page/Login_Images/button2.png" alt="Kakao 로그인">
+                                    <img class="social-login-button" src="QR/Community_Page/Login_Images/button3.png" alt="Naver 로그인">
+                                    <img class="social-login-button" src="QR/Community_Page/Login_Images/button4.png" alt="Apple 로그인">
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+	</div>
+	<div id="review-popup" class="popup-common">
+        <button id="close-review-popup-btn" class="close-btn-img">
+			<img src="QR/Community_Page/Review_Images/Close_round.png" alt="Close Popup">
+		</button>
+		<div class="review-parent">
+			<div class="review-div">
+				<div class="review-wrapper">
+					<div class="review-div1">리뷰 작성</div>
+				</div>
+				<div class="review-table-wrapper">
+					<div class="review-table">
+						<div class="review-tr">
+							<div class="review-div2">만족도</div>
+							<div class="review-frame-parent">
+								<div class="review-vector-parent" id="star-rating-container" data-rating="0">
+									<img class="rating-star" alt="star 1">
+									<img class="rating-star" alt="star 2">
+									<img class="rating-star" alt="star 3">
+									<img class="rating-star" alt="star 4">
+									<img class="rating-star" alt="star 5">
+								</div>
+								<div id="star-rating-text" class="review-div1">상품은 만족하셨나요?</div>
+							</div>
+						</div>
+						<div class="review-tr1">
+							<div class="review-div2">작성자</div>
+							<div class="review-jejeeeeegmailcom-parent">
+								<div class="review-jejeeeeegmailcom">jejeeeee@gmail.com</div>
+								<div class="review-div5">2025-03-22</div>
+							</div>
+						</div>
+						<div class="review-tr1">
+							<div class="review-div2">제목</div>
+							<div class="review-container">
+								<input type="text" class="review-input" value="너무 마음에들어요!">
+							</div>
+						</div>
+						<div class="review-tr">
+							<div class="review-div2">내용</div>
+							<textarea class="review-textarea-bordered">디자인도 예쁘고 카드 퀄리티도 최고에요!! 처음 구매하는거라 이것저것 많이 물어봐서 귀찮으셨을텐데 친절하게 상담해주셔서 좋았습니다^^
+요즘 같은 세상에 정말정말 필요한 제품인거 같아서 주변에 추천 많이 해주고 있습니다! </textarea>
+						</div>
+						<div class="review-tr">
+							<div class="review-group">
+								<div class="review-div1">사진 첨부</div>
+								<img id="help-icon" class="help-icon-class" src="QR/Community_Page/Review_Images/stash_question-light.svg" alt="Help">
+								<img id="help-info-image" class="help-info-class" src="QR/Community_Page/Review_Images/Info.png" alt="Photo upload info">
+							</div>
+							<div class="review-box-parent" id="review-image-previews">
+								<div class="review-box" id="review-upload-trigger">
+									<img class="review-bitcoin-iconsplus-outline" alt="add photo" src="QR/Community_Page/Review_Images/Plus.svg">
+								</div>
+                                <input type="file" id="review-image-upload" accept="image/*" multiple hidden>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="review-main-menu-bar-atomic-pc-parent">
+					<div id="review-cancel-btn" class="review-main-menu-bar-atomic-pc"><div class="review-div1">취소</div></div>
+					<div id="submit-review-btn" class="review-main-menu-bar-atomic-pc1"><div class="review-div1">등록</div></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="review-complete-popup" class="popup-common">
+		<div class="review-complete-content">
+			<div class="rc-wrapper">
+				<div class="rc-div1">리뷰 작성 완료</div>
+			</div>
+			<div class="rc-jejeeeeegmailcom-wrapper">
+				<div class="rc-jejeeeeegmailcom-container">
+					<p class="rc-p">리뷰 작성이 완료되었습니다.</p>
+					<p class="rc-p"> </p>
+					<p class="rc-p">리뷰 이벤트로 무료 30일 라이센스가</p>
+					<p class="rc-p">jejeeeee@gmail.com 계정으로 자동충전되었습니다.</p>
+					<p class="rc-p"> </p>
+					<p class="rc-p">쿠폰 네비게이션 행사에 많은 참여 부탁드립니다.</p>
+				</div>
+			</div>
+			<div class="rc-main-menu-bar-atomic-pc-wrapper">
+				<div id="close-complete-popup-btn" class="rc-main-menu-bar-atomic-pc">
+					<div class="rc-div1">확인</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="image-detail-popup" class="popup-common">
+		<button id="close-image-popup-btn" class="close-btn-img">
+			<img src="QR/Community_Page/Review_Images/Close_round.png" alt="Close Image">
+		</button>
+		<img id="popup-detail-image" src="" alt="Review Detail Image" style="display: block; max-width: 90vw; max-height: 90vh;">
+	</div>
+
+    <!-- Coupon Navigation Section Popups -->
+    <div id="coupon-detail-popup" class="popup-common">
+        <button id="close-coupon-detail-popup-btn" class="close-btn-img">
+            <img src="QR/Community_Page/Coupon_Images/Close_round.png" alt="Close">
+        </button>
+        <div class="popup-scroll-content">
+            <div class="coupon-detail-content">
+                <img class="image-1856-icon" alt="Event Details Image" src="QR/Community_Page/Coupon_Images/Pop1.png">
+                <div class="text-parent">
+                    <div class="popup-body">
+                        <div class="popup-header">
+                            <div class="popup-status"><b>진행중</b></div>
+                            <div class="div1">이벤트 기간 | 2025.07.17 - 2026.12.31</div>
+                            <b class="b1">리뷰 이벤트</b>
+                        </div>
+                        <div class="qr-app-30-wrapper">
+                            <div class="qr-app-container">
+                                <p>운전자분들이 놓치면 안되는 기회 !!</p>
+                                <p>2025년 7월 17일부터 "QR알리미" App을 다운로드 받으면, 누구나 30일 무료사용 가능 !!</p>
+                                <p>지금 설치하세요.</p>
+                                <p> </p>
+                                <p>◦참여조건 : QR알리미 앱을 사용중인 운전자</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="participate-button" id="participate-btn">
+                        <b>참여하기</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="coupon-login-popup" class="popup-common">
+        <button id="close-coupon-login-popup-btn" class="close-btn-img">
+            <img src="QR/Community_Page/Coupon_Images/Close_round.png" alt="Close">
+        </button>
+        <div class="popup-scroll-content">
+            <div class="login-parent">
+                <div class="login">
+                    <img src="QR/Community_Page/Login_Images/Title.png" alt="로그인">
+                    <div class="login-frame-parent">
+                        <div class="login-frame-container">
+                            <img class="login-info-image" src="QR/Community_Page/Login_Images/Info.png" alt="QR알리미 앱 로그인 안내. 반드시 앱과 동일한 계정으로 연동로그인 해주세요.">
+                            <div class="button-parent">
+                                <img class="social-login-button" src="QR/Community_Page/Login_Images/button.png" alt="Google 로그인">
+                                <img class="social-login-button" src="QR/Community_Page/Login_Images/button2.png" alt="Kakao 로그인">
+                                <img class="social-login-button" src="QR/Community_Page/Login_Images/button3.png" alt="Naver 로그인">
+                                <img class="social-login-button" src="QR/Community_Page/Login_Images/button4.png" alt="Apple 로그인">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <script>
@@ -1052,6 +1791,242 @@
                         moveToSlide();
                     });
                 }
+            }
+
+            // --- REVIEW SECTION & COUPON SECTION SCRIPT ---
+            // === GET ELEMENTS ===
+            const overlay = document.getElementById('popup-overlay');
+            
+            // Review Elements
+            const reviewSection = document.getElementById('review-section');
+            const writeReviewBtn = document.getElementById('write-review-btn');
+            const loginPopup = document.getElementById('login-popup');
+            const closeLoginBtn = document.getElementById('close-login-popup-btn');
+            const reviewPopup = document.getElementById('review-popup');
+            const closeReviewPopupBtn = document.getElementById('close-review-popup-btn');
+            const reviewCompletePopup = document.getElementById('review-complete-popup');
+            const imageDetailPopup = document.getElementById('image-detail-popup');
+
+            // Coupon Elements
+            const couponSection = document.getElementById('coupon-section');
+            const couponEventTrigger = document.getElementById('c1-trigger');
+            const couponDetailPopup = document.getElementById('coupon-detail-popup');
+            const closeCouponDetailBtn = document.getElementById('close-coupon-detail-popup-btn');
+            const participateBtn = document.getElementById('participate-btn');
+            const couponLoginPopup = document.getElementById('coupon-login-popup');
+            const closeCouponLoginBtn = document.getElementById('close-coupon-login-popup-btn');
+
+            // === FUNCTIONS ===
+            function closeAllPopups() {
+                if (overlay) overlay.style.display = 'none';
+                // Hide all popups
+                if (loginPopup) loginPopup.style.display = 'none';
+                if (reviewPopup) reviewPopup.style.display = 'none';
+                if (reviewCompletePopup) reviewCompletePopup.style.display = 'none';
+                if (imageDetailPopup) imageDetailPopup.style.display = 'none';
+                if (couponDetailPopup) couponDetailPopup.style.display = 'none';
+                if (couponLoginPopup) couponLoginPopup.style.display = 'none';
+            }
+             if (overlay) overlay.addEventListener('click', closeAllPopups);
+
+            // Logic for Review Section
+            if(reviewSection) {
+                // === CONSTANTS ===
+                const STAR_EMPTY_URI = 'QR/Community_Page/Review_Images/Empty_star.svg';
+                const STAR_FULL_URI = 'QR/Community_Page/Review_Images/Full_star.png';
+                const STAR_HALF_URI = 'QR/Community_Page/Review_Images/Half_star.png';
+
+                // === GET REVIEW ELEMENTS ===
+                const socialLoginButtons = document.querySelectorAll('#login-popup .social-login-button');
+                const cancelReviewBtn = document.getElementById('review-cancel-btn');
+                const uploadTrigger = document.getElementById('review-upload-trigger');
+                const fileInput = document.getElementById('review-image-upload');
+                const previewContainer = document.getElementById('review-image-previews');
+                const starContainer = document.getElementById('star-rating-container');
+                const starImages = starContainer.querySelectorAll('.rating-star');
+                const ratingText = document.getElementById('star-rating-text');
+                const submitReviewBtn = document.getElementById('submit-review-btn');
+                const closeCompleteBtn = document.getElementById('close-complete-popup-btn');
+                const closeImagePopupBtn = document.getElementById('close-image-popup-btn');
+                const popupDetailImage = document.getElementById('popup-detail-image');
+                const reviewImages = reviewSection.querySelectorAll('.review-image');
+                const helpIcon = document.getElementById('help-icon');
+                const helpInfoImage = document.getElementById('help-info-image');
+
+                // === REVIEW FUNCTIONS ===
+                function openLoginPopup() {
+                    if (overlay) overlay.style.display = 'block';
+                    if (loginPopup) loginPopup.style.display = 'block';
+                }
+
+                function openReviewPopup() {
+                    if (loginPopup) loginPopup.style.display = 'none'; 
+                    if (reviewPopup) reviewPopup.style.display = 'block'; 
+                    if (overlay) overlay.style.display = 'block';
+                    initStars(); 
+                }
+
+                function openReviewCompletePopup() {
+                    if(reviewPopup) reviewPopup.style.display = 'none';
+                    if(reviewCompletePopup) reviewCompletePopup.style.display = 'block';
+                }
+        
+                function handleImageUpload(event) {
+                    const files = event.target.files;
+                    if (!files || !previewContainer) return;
+
+                    for (const file of files) {
+                        if (!file.type.startsWith('image/')) continue;
+
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            const img = document.createElement('img');
+                            img.src = e.target.result;
+                            img.classList.add('review-image-preview');
+                            img.alt = 'preview';
+                            previewContainer.appendChild(img);
+                        }
+                        reader.readAsDataURL(file);
+                    }
+                }
+
+                function initStars() {
+                    starContainer.dataset.rating = "0";
+                    updateStars(0);
+                }
+
+                function updateStars(rating) {
+                    const ratingTexts = {
+                        0: "상품은 만족하셨나요?", 0.5: "별로예요", 1: "별로예요", 1.5: "그저 그래요",
+                        2: "그저 그래요", 2.5: "괜찮아요", 3: "괜찮아요", 3.5: "좋아요",
+                        4: "좋아요", 4.5: "최고예요!", 5: "최고예요!"
+                    };
+                    
+                    starImages.forEach((star, index) => {
+                        if (rating >= index + 1) {
+                            star.src = STAR_FULL_URI;
+                        } else if (rating >= index + 0.5) {
+                            star.src = STAR_HALF_URI;
+                        } else {
+                            star.src = STAR_EMPTY_URI;
+                        }
+                    });
+
+                    if(ratingText) {
+                        ratingText.textContent = ratingTexts[rating] || "상품은 만족하셨나요?";
+                    }
+                }
+
+                function getRatingFromEvent(event) {
+                    const rect = starContainer.getBoundingClientRect();
+                    const offsetX = event.clientX - rect.left;
+                    const width = rect.width;
+                    const rawRating = (offsetX / width) * 5;
+                    return Math.max(0.5, Math.ceil(rawRating * 2) / 2);
+                }
+
+                function handleStarHover(event) {
+                    const hoverRating = getRatingFromEvent(event);
+                    updateStars(hoverRating);
+                }
+
+                function handleStarLeave() {
+                    const savedRating = parseFloat(starContainer.dataset.rating) || 0;
+                    updateStars(savedRating);
+                }
+
+                function handleStarClick(event) {
+                    const clickedRating = getRatingFromEvent(event);
+                    starContainer.dataset.rating = clickedRating;
+                    updateStars(clickedRating);
+                }
+        
+                // === ADD REVIEW EVENT LISTENERS ===
+                if (writeReviewBtn) writeReviewBtn.addEventListener('click', openLoginPopup);
+                socialLoginButtons.forEach(button => button.addEventListener('click', openReviewPopup));
+                if (closeLoginBtn) closeLoginBtn.addEventListener('click', closeAllPopups);
+                if (closeReviewPopupBtn) closeReviewPopupBtn.addEventListener('click', closeAllPopups);
+                if (cancelReviewBtn) cancelReviewBtn.addEventListener('click', closeAllPopups);
+                if (submitReviewBtn) submitReviewBtn.addEventListener('click', openReviewCompletePopup);
+                if (closeCompleteBtn) closeCompleteBtn.addEventListener('click', closeAllPopups);
+
+                if (uploadTrigger) uploadTrigger.addEventListener('click', () => fileInput.click());
+                if (fileInput) fileInput.addEventListener('change', handleImageUpload);
+                
+                if (starContainer) {
+                    starContainer.addEventListener('mousemove', handleStarHover);
+                    starContainer.addEventListener('mouseleave', handleStarLeave);
+                    starContainer.addEventListener('click', handleStarClick);
+                }
+
+                reviewImages.forEach(image => {
+                    image.addEventListener('click', function() {
+                        const originalSrc = this.getAttribute('src');
+                        if (!originalSrc) return;
+                        const fileName = originalSrc.substring(originalSrc.lastIndexOf('/') + 1);
+                        const popupFileName = fileName.replace('R', 'Pop');
+                        const popupSrc = `QR/Community_Page/Review_Images/${popupFileName}`;
+                        
+                        if (popupDetailImage) popupDetailImage.src = popupSrc;
+                        if (overlay) overlay.style.display = 'block';
+                        if (imageDetailPopup) imageDetailPopup.style.display = 'block';
+                    });
+                });
+
+                if (closeImagePopupBtn) closeImagePopupBtn.addEventListener('click', closeAllPopups);
+
+                if (helpIcon) {
+                    helpIcon.addEventListener('click', (event) => {
+                        event.stopPropagation();
+                        const isVisible = helpInfoImage.style.display === 'block';
+                        helpInfoImage.style.display = isVisible ? 'none' : 'block';
+                    });
+                }
+
+                document.addEventListener('click', (event) => {
+                    if (helpInfoImage && helpInfoImage.style.display === 'block') {
+                        if (event.target !== helpIcon && !helpInfoImage.contains(event.target)) {
+                            helpInfoImage.style.display = 'none';
+                        }
+                    }
+                });
+
+                // Pagination Logic (Scoped)
+                const reviewPageContainer = reviewSection.querySelector('.page');
+                if (reviewPageContainer) {
+                    const pageNumbers = reviewPageContainer.querySelectorAll('.pagination-atomic2, .pagination-atomic3');
+                    pageNumbers.forEach(page => {
+                        page.style.cursor = 'pointer';
+                        page.addEventListener('click', function() {
+                            const currentActive = reviewPageContainer.querySelector('.pagination-atomic2');
+                            if (currentActive) {
+                                currentActive.classList.remove('pagination-atomic2');
+                                currentActive.classList.add('pagination-atomic3');
+                            }
+                            this.classList.remove('pagination-atomic3');
+                            this.classList.add('pagination-atomic2');
+                        });
+                    });
+                }
+            }
+
+            // Logic for Coupon Navigation Section
+            if (couponSection) {
+                function openCouponDetailPopup() {
+                    if (overlay) overlay.style.display = 'block';
+                    if (couponDetailPopup) couponDetailPopup.style.display = 'block';
+                }
+
+                function openCouponLoginPopup() {
+                    if (couponDetailPopup) couponDetailPopup.style.display = 'none';
+                    if (couponLoginPopup) couponLoginPopup.style.display = 'block';
+                    if (overlay) overlay.style.display = 'block';
+                }
+
+                if(couponEventTrigger) couponEventTrigger.addEventListener('click', openCouponDetailPopup);
+                if(closeCouponDetailBtn) closeCouponDetailBtn.addEventListener('click', closeAllPopups);
+                if(participateBtn) participateBtn.addEventListener('click', openCouponLoginPopup);
+                if(closeCouponLoginBtn) closeCouponLoginBtn.addEventListener('click', closeAllPopups);
             }
         });
     </script>
