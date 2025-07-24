@@ -53,7 +53,7 @@ QR/
 1. **Clone or Download the Repository**
 
 ```bash
-git clone https://github.com/your-repo-name.git
+git clone https://github.com/Saikumar1801/CommunityPage.git
 ```
 2. **Place the Folder**
 
